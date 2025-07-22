@@ -6,5 +6,6 @@ Pasos:
   4) python manage.py migrate
   5) python manage.py createsuperuser
   6) python manage.py runserver
-http://127.0.0.1:8000/swagger/
+
+  7) url del navegador : http://127.0.0.1:8000/swagger/
 
