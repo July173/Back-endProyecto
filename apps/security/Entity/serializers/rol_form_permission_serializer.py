@@ -5,4 +5,4 @@ from core.base.serializers.base_serializer import BaseSerializer
 class RolFormPermissionSerializer(BaseSerializer):
     class Meta:
         model = RolFormPermission
-        fields = '__all__'
+        fields =['id','role','form','permission']

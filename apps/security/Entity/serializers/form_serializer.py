@@ -5,4 +5,4 @@ from core.base.serializers.base_serializer import BaseSerializer
 class FormSerializer(BaseSerializer):
     class Meta:
         model = Form
-        fields = '__all__'
+        fields = ['id', 'name', 'description', 'active']

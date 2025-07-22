@@ -4,4 +4,4 @@ from core.base.serializers.base_serializer import BaseSerializer
 class RoleSerializer(BaseSerializer):
     class Meta: 
         model=Role; 
-        fields=['id','type_role','description']
+        fields=['id','type_role','description','active']

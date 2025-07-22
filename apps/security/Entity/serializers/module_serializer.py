@@ -5,4 +5,4 @@ from core.base.serializers.base_serializer import BaseSerializer
 class ModuleSerializer(BaseSerializer):
     class Meta:
         model = Module
-        fields = '__all__'
+        fields = ['id', 'name', 'description', 'active']

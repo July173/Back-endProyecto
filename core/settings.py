@@ -25,7 +25,7 @@ INSTALLED_APPS = [
     # Terceros
     'rest_framework',
     'drf_yasg',
-
+    'corsheaders',
     # Apps locales
     'apps.security',  # reemplaza 'api' por tu app de seguridad
 ]
@@ -34,6 +34,8 @@ INSTALLED_APPS = [
 # MIDDLEWARE
 # ============================
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -96,7 +98,8 @@ AUTH_PASSWORD_VALIDATORS = [
 # ============================
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
+        'rest_framework.permissions.AllowAny',
+       # 'rest_framework.permissions.IsAuthenticated',
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.SessionAuthentication',
@@ -110,8 +113,11 @@ REST_FRAMEWORK = {
 # ============================
 SWAGGER_SETTINGS = {
     'SECURITY_DEFINITIONS': {
-        'Basic': {'type': 'basic'},
-        'Bearer': {'type': 'apiKey', 'name': 'Authorization', 'in': 'header'}
+        'Bearer': {
+            'type': 'apiKey',
+            'name': 'Authorization',
+            'in': 'header'
+        }
     },
     'USE_SESSION_AUTH': False,
     'JSON_EDITOR': True,
@@ -133,3 +139,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CORS_ALLOWED_ORIGINS = [
+    "http://127.0.0.1:8000",
+   # "http://localhost:8000",
+]

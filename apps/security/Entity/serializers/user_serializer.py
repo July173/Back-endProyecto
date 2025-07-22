@@ -4,5 +4,4 @@ from core.base.serializers.base_serializer import BaseSerializer
 class UserSerializer(BaseSerializer):
   class Meta:
         model = User
-        fields = '__all__'
-
+        fields = ['email', 'password', 'person', 'role']

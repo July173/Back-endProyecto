@@ -5,4 +5,4 @@ from core.base.serializers.base_serializer import BaseSerializer
 class PermissionSerializer(BaseSerializer):
     class Meta:
         model = Permission
-        fields = '__all__'
+        fields = ['id', 'type_permission', 'description'] 
