@@ -22,7 +22,6 @@ class UserManager(BaseUserManager):
         return self.create_user(email, password, **extra_fields)
 
 
-
 class User(AbstractBaseUser, PermissionsMixin):
     email = models.EmailField(max_length=100, unique=True)
     is_active = models.BooleanField(default=True)
@@ -66,13 +65,17 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     objects = UserManager()
 
-    REQUIRED_FIELDS = ['email']
+    # ✅ CAMPOS REQUERIDOS PARA AbstractBaseUser
+    USERNAME_FIELD = 'email'
+    REQUIRED_FIELDS = []  # Campos requeridos además del USERNAME_FIELD
 
     class Meta:
         verbose_name = "Usuario"
         verbose_name_plural = "Usuarios"
 
- 
+    def __str__(self):
+        return self.email
+
     def soft_delete(self):
         """Marca el usuario como eliminado sin borrarlo de la BD"""
         self.deleted_at = timezone.now()

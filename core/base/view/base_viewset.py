@@ -14,37 +14,51 @@ class BaseViewSet(viewsets.ViewSet):
             raise ValueError("Debe definir 'serializer_class'")
         self.service = self.service_class()
 
+    # --- NUEVO: requerido por drf-yasg y buena práctica DRF ---
+    def get_serializer_class(self):
+        return self.serializer_class
+
+    def get_serializer(self, *args, **kwargs):
+        return self.get_serializer_class()(*args, **kwargs)
+    # ----------------------------------------------------------
+
     def list(self, request):
         items = self.service.list()
-        serializer = self.serializer_class(items, many=True)
+        serializer = self.get_serializer(items, many=True)
         return Response(serializer.data)
 
     def retrieve(self, request, pk=None):
         item = self.service.get(pk)
-        serializer = self.serializer_class(item)
+        serializer = self.get_serializer(item)
         return Response(serializer.data)
 
     def create(self, request):
-        serializer = self.serializer_class(data=request.data)
+        serializer = self.get_serializer(data=request.data)
         serializer.is_valid(raise_exception=True)
-        item = self.service.create(serializer.validated_data)
-        return Response(self.serializer_class(item).data, status=status.HTTP_201_CREATED)
+        # Usa service o serializer.save() según tu patrón:
+        instance = self.service.create(serializer.validated_data)
+        out = self.get_serializer(instance)
+        return Response(out.data, status=status.HTTP_201_CREATED)
 
     def update(self, request, pk=None):
-        serializer = self.serializer_class(data=request.data)
+        instance = self.service.get(pk)
+        serializer = self.get_serializer(instance, data=request.data)
         serializer.is_valid(raise_exception=True)
-        item = self.service.update(pk, serializer.validated_data)
-        return Response(self.serializer_class(item).data)
+        instance = self.service.update(pk, serializer.validated_data)
+        out = self.get_serializer(instance)
+        return Response(out.data)
 
     def partial_update(self, request, pk=None):
-        serializer = self.serializer_class(data=request.data, partial=True)
+        instance = self.service.get(pk)
+        serializer = self.get_serializer(instance, data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
-        item = self.service.update(pk, serializer.validated_data)
-        return Response(self.serializer_class(item).data)
+        instance = self.service.update(pk, serializer.validated_data)
+        out = self.get_serializer(instance)
+        return Response(out.data)
 
     def destroy(self, request, pk=None):
         instance = self.service.get(pk)
-        # Soft delete si el modelo tiene el campo is_deleted
+        # Soft delete si el modelo expone is_deleted
         if hasattr(instance, "is_deleted"):
             instance.is_deleted = True
             instance.save()
