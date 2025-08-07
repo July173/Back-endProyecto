@@ -2,6 +2,7 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
 
+
 class BaseViewSet(viewsets.ViewSet):
     service_class = None
     serializer_class = None
