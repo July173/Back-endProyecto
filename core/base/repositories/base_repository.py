@@ -17,13 +17,32 @@ class BaseRepository:
         return self.model.objects.create(**data)
 
     def update(self, instance, data):
-        for k, v in data.items(): setattr(instance, k, v)
-        instance.save(); return instance
+        for k, v in data.items():
+            setattr(instance, k, v)
+        instance.save()
+        return instance
 
     def logical_delete(self, instance):
-        if hasattr(instance, 'is_deleted'):
-            instance. is_deleted = True; instance.save(); return instance
-        instance.delete(); return None
+        """
+        Realiza eliminación lógica desactivando el registro.
+        Busca campos como 'is_active', 'active', 'is_deleted' o 'deleted'.
+        """
+        if hasattr(instance, 'is_active'):
+            instance.is_active = False
+        elif hasattr(instance, 'active'):
+            instance.active = False
+        elif hasattr(instance, 'is_deleted'):
+            instance.is_deleted = True
+        elif hasattr(instance, 'deleted'):
+            instance.deleted = True
+        else:
+            # Si no tiene campos de estado, hacer eliminación física
+            instance.delete()
+            return None
+        
+        instance.save()
+        return instance
 
     def delete(self, instance):
-        instance.delete(); return None
+        instance.delete()
+        return None
