@@ -1,6 +1,8 @@
 # core/base/controllers/base_viewset.py
 from rest_framework import viewsets, status
 from rest_framework.response import Response
+from rest_framework.decorators import action
+
 
 class BaseViewSet(viewsets.ViewSet):
     service_class = None
@@ -65,3 +67,27 @@ class BaseViewSet(viewsets.ViewSet):
         else:
             self.service.delete(pk)
         return Response(status=status.HTTP_204_NO_CONTENT)
+
+    @action(detail=True, methods=['delete'], url_path='logical-delete')
+    def logical_delete(self, request, pk=None):
+        """
+        Controlador para eliminación lógica (alterna activo/inactivo)
+        URL: DELETE /api/recurso/1/logical-delete/
+        """
+        self.service.delete(pk, logical=True)
+        return Response(
+            {"message": "Estado del registro alternado correctamente"}, 
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=True, methods=['delete'], url_path='persistential-delete')
+    def persistential_delete(self, request, pk=None):
+        """
+        Controlador para eliminación persistencial (desactiva y guarda fecha)
+        URL: DELETE /api/recurso/1/persistential-delete/
+        """
+        self.service.delete(pk, persistential=True)
+        return Response(
+            {"message": "Registro desactivado permanentemente con fecha"}, 
+            status=status.HTTP_200_OK
+        )
