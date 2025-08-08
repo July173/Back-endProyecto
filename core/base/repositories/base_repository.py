@@ -28,26 +28,56 @@ class BaseRepository:
         """
         Eliminación persistencial: desactiva el registro y guarda la fecha.
         """
+        # Debug: Mostrar campos disponibles
+        print(f"Modelo: {instance.__class__.__name__}")
+        print(f"Campos disponibles: {[field.name for field in instance._meta.fields]}")
+        
         # Desactivar el registro
         if hasattr(instance, 'active'):
+            print(f"Campo 'active' encontrado. Valor actual: {instance.active}")
             instance.active = False
+            print(f"Campo 'active' cambiado a: {instance.active}")
         elif hasattr(instance, 'is_active'):
+            print(f"Campo 'is_active' encontrado. Valor actual: {instance.is_active}")
             instance.is_active = False
+            print(f"Campo 'is_active' cambiado a: {instance.is_active}")
         elif hasattr(instance, 'is_deleted'):
+            print(f"Campo 'is_deleted' encontrado. Valor actual: {instance.is_deleted}")
             instance.is_deleted = True
+            print(f"Campo 'is_deleted' cambiado a: {instance.is_deleted}")
         elif hasattr(instance, 'deleted'):
+            print(f"Campo 'deleted' encontrado. Valor actual: {instance.deleted}")
             instance.deleted = True
+            print(f"Campo 'deleted' cambiado a: {instance.deleted}")
         
         # Guardar fecha de eliminación
         current_time = timezone.now()
-        if hasattr(instance, 'delete_at'):
-            instance.delete_at = current_time
-        elif hasattr(instance, 'deleted_at'):
-            instance.deleted_at = current_time
-        elif hasattr(instance, 'date_deleted'):
-            instance.date_deleted = current_time
+        print(f"Fecha actual: {current_time}")
         
+        if hasattr(instance, 'delete_at'):
+            print(f"Campo 'delete_at' encontrado. Valor actual: {instance.delete_at}")
+            instance.delete_at = current_time
+            print(f"Campo 'delete_at' cambiado a: {instance.delete_at}")
+        elif hasattr(instance, 'deleted_at'):
+            print(f"Campo 'deleted_at' encontrado. Valor actual: {instance.deleted_at}")
+            instance.deleted_at = current_time
+            print(f"Campo 'deleted_at' cambiado a: {instance.deleted_at}")
+        elif hasattr(instance, 'date_deleted'):
+            print(f"Campo 'date_deleted' encontrado. Valor actual: {instance.date_deleted}")
+            instance.date_deleted = current_time
+            print(f"Campo 'date_deleted' cambiado a: {instance.date_deleted}")
+        else:
+            print("¡ADVERTENCIA! No se encontró ningún campo de fecha de eliminación")
+        
+        print("Guardando instancia...")
         instance.save()
+        print("Instancia guardada")
+        
+        # Verificar que se guardó correctamente
+        instance.refresh_from_db()
+        print(f"Después de guardar - active: {getattr(instance, 'active', 'N/A')}")
+        print(f"Después de guardar - delete_at: {getattr(instance, 'delete_at', 'N/A')}")
+        
         return instance
 
     def logical_delete(self, instance):

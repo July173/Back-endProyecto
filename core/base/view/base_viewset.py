@@ -71,11 +71,23 @@ class BaseViewSet(viewsets.ViewSet):
     @action(detail=True, methods=['delete'], url_path='logical-delete')
     def logical_delete(self, request, pk=None):
         """
-        Controlador para eliminación lógica
+        Controlador para eliminación lógica (alterna activo/inactivo)
         URL: DELETE /api/recurso/1/logical-delete/
         """
         self.service.delete(pk, logical=True)
         return Response(
-            {"message": "Registro desactivado correctamente"}, 
+            {"message": "Estado del registro alternado correctamente"}, 
+            status=status.HTTP_200_OK
+        )
+
+    @action(detail=True, methods=['delete'], url_path='persistential-delete')
+    def persistential_delete(self, request, pk=None):
+        """
+        Controlador para eliminación persistencial (desactiva y guarda fecha)
+        URL: DELETE /api/recurso/1/persistential-delete/
+        """
+        self.service.delete(pk, persistential=True)
+        return Response(
+            {"message": "Registro desactivado permanentemente con fecha"}, 
             status=status.HTTP_200_OK
         )
