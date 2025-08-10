@@ -1,5 +1,4 @@
 from pathlib import Path
-from datetime import timedelta
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -27,7 +26,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     # Apps locales
-    'apps.security',  # reemplaza 'api' por tu app de seguridad
+    'apps.Security',  # reemplaza 'api' por tu app de seguridad
 ]
 
 # ============================
@@ -81,7 +80,7 @@ DATABASES = {
 # ============================
 # MODELO DE USUARIO PERSONALIZADO
 # ============================
-AUTH_USER_MODEL = 'security.User'
+AUTH_USER_MODEL = 'Security.User'
 
 # ============================
 # VALIDACIÓN DE CONTRASEÑAS

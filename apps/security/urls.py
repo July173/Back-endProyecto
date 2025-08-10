@@ -3,17 +3,17 @@ from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 
 # Importa los ViewSets de todas las tablas
-from apps.security.views.user_viewset import UserViewSet
-from apps.security.views.role_viewset import RoleViewSet
-from apps.security.views.person_viewset import PersonViewSet
-from apps.security.views.form_viewset import FormViewSet
-from apps.security.views.permission_viewset import PermissionViewSet
-from apps.security.views.module_viewset import ModuleViewSet
-from apps.security.views.form_module_viewset import FormModuleViewSet
-from apps.security.views.rol_form_permission_viewset import RolFormPermissionViewSet
+from apps.Security.Views.UserViewset import UserViewSet
+from apps.Security.Views.RoleViewset import RoleViewSet
+from apps.Security.Views.PersonViewset import PersonViewSet
+from apps.Security.Views.FormViewset import FormViewSet
+from apps.Security.Views.PermissionViewset import PermissionViewSet
+from apps.Security.Views.ModuleViewset import ModuleViewSet
+from apps.Security.Views.FormModuleViewset import FormModuleViewSet
+from apps.Security.Views.RoleFormPermissionViewset import RolFormPermissionViewSet
 
 # Importa login y refresh
-from apps.security.views.auth_viewset import LoginView, RefreshView
+from apps.Security.Views.auth_viewset import LoginView, RefreshView
 
 # Configura el router y registra todos los ViewSets
 router = DefaultRouter()
