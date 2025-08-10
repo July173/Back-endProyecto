@@ -32,7 +32,7 @@ class BaseRepository:
         # Debug: Mostrar campos disponibles
         print(f"Modelo: {instance.__class__.__name__}")
         print(f"Campos disponibles: {[field.name for field in instance._meta.fields]}")
-        
+
         # Desactivar el registro
         if hasattr(instance, 'active'):
             print(f"Campo 'active' encontrado. Valor actual: {instance.active}")
@@ -50,11 +50,11 @@ class BaseRepository:
             print(f"Campo 'deleted' encontrado. Valor actual: {instance.deleted}")
             instance.deleted = True
             print(f"Campo 'deleted' cambiado a: {instance.deleted}")
-        
+
         # Guardar fecha de eliminación
         current_time = timezone.now()
         print(f"Fecha actual: {current_time}")
-        
+
         if hasattr(instance, 'delete_at'):
             print(f"Campo 'delete_at' encontrado. Valor actual: {instance.delete_at}")
             instance.delete_at = current_time

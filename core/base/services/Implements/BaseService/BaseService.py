@@ -61,9 +61,9 @@ class BaseService:
             delete_type = 'persistential'
         elif physical is True:
             delete_type = 'physical'
-        
+
         inst = self.get(pk)
-        
+
         if delete_type == 'persistential':
             return self.repository.persistential_delete(inst)
         elif delete_type == 'logical':
