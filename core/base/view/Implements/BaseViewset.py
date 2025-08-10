@@ -4,7 +4,7 @@ from rest_framework.decorators import action
 from rest_framework.request import Request
 from typing import Type, Any
 from core.base.View.Interfaces.IBaseViewset import IBaseViewSet
-from core.base.Services.Interfaces.IBaseServices import IBaseService
+from core.base.Services.Interfaces.IBaseService import IBaseService
 from rest_framework.serializers import Serializer
 
 
