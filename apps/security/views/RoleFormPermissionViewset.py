@@ -1,6 +1,7 @@
-from core.base.view.base_viewset import BaseViewSet
-from apps.security.services.rol_form_permission_service import RolFormPermissionService
-from apps.security.Entity.serializers.rol_form_permission_serializer import RolFormPermissionSerializer
+from core.base.View.Implements import BaseViewSet
+from apps.Security.Services.RoleFormPermissionService import RolFormPermissionService
+from apps.Security.Entity.Serializers.RoleFormPermissionSerializer import RolFormPermissionSerializer
+
 
 class RolFormPermissionViewSet(BaseViewSet):
     service_class = RolFormPermissionService

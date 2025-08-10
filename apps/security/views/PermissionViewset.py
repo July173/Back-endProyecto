@@ -1,6 +1,7 @@
-from core.base.view.base_viewset import BaseViewSet
-from apps.security.services.permission_service import PermissionService
-from apps.security.Entity.serializers.permission_serializer import PermissionSerializer
+from core.base.View.Implements import BaseViewSet
+from apps.Security.Services.PermissionService import PermissionService
+from apps.Security.Entity.Serializers.PermissionSerializer import PermissionSerializer
+
 
 class PermissionViewSet(BaseViewSet):
     service_class = PermissionService

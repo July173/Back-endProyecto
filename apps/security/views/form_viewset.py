@@ -1,6 +1,6 @@
-from core.base.view.base_viewset import BaseViewSet
-from apps.security.services.form_service import FormService
-from apps.security.Entity.serializers.form_serializer import FormSerializer
+from core.base.View.Implements import BaseViewSet
+from apps.Security.Services.FormService import FormService
+from apps.Security.Entity.Serializers.FormSerializer import FormSerializer
 
 
 class FormViewSet(BaseViewSet):
