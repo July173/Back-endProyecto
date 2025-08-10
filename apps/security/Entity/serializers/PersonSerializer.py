@@ -1,5 +1,5 @@
 from apps.Security.Entity.Models import Person
-from core.base.Serializers.Implements.BaseSerializer import BaseSerializer
+from core.base.Serializers.Implements.BaseSerializer.BaseSerializer import BaseSerializer
 
 
 class PersonSerializer(BaseSerializer):

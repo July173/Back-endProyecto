@@ -1,5 +1,5 @@
 from apps.Security.Entity.Models import Permission
-from core.base.Serializers.Implements.BaseSerializer import BaseSerializer
+from core.base.Serializers.Implements.BaseSerializer.BaseSerializer import BaseSerializer
 
 
 class PermissionSerializer(BaseSerializer):

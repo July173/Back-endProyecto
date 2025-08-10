@@ -1,4 +1,4 @@
-from core.base.View.Implements import BaseViewSet
+from core.base.View.Implements.BaseViewset import BaseViewSet
 from apps.Security.Services.ModuleService import ModuleService
 from apps.Security.Entity.Serializers.ModuleSerializer import ModuleSerializer
 

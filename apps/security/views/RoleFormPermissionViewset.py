@@ -1,4 +1,4 @@
-from core.base.View.Implements import BaseViewSet
+from core.base.View.Implements.BaseViewset import BaseViewSet
 from apps.Security.Services.RoleFormPermissionService import RolFormPermissionService
 from apps.Security.Entity.Serializers.RoleFormPermissionSerializer import RolFormPermissionSerializer
 

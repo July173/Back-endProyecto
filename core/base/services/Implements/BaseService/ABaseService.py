@@ -6,7 +6,7 @@ from core.base.Repositories.Interfaces.IBaseRepository import IBaseRepository
 T = TypeVar("T")
 
 
-class AbstractBaseService(IBaseService[T], ABC):
+class ABaseService(IBaseService[T], ABC):
     """Implementación base abstracta del servicio."""
 
     def __init__(self, repository: IBaseRepository[T]):

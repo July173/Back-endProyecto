@@ -1,5 +1,5 @@
 from apps.Security.Entity.Models import Role
-from core.base.Serializers.Implements.BaseSerializer import BaseSerializer
+from core.base.Serializers.Implements.BaseSerializer.BaseSerializer import BaseSerializer
 
 
 class RoleSerializer(BaseSerializer):

@@ -1,4 +1,4 @@
-from core.base.Services.Implements.BaseService import BaseService
+from core.base.Services.Implements.BaseService.BaseService import BaseService
 from apps.Security.Repositories.UserRepository import UserRepository
 from django.contrib.auth.hashers import make_password
 

@@ -1,12 +1,12 @@
 from abc import ABC
 from django.db import models
 from typing import TypeVar, List, Optional
-from core.base.Repositories.Interfaces import IBaseRepository
+from core.base.Repositories.Interfaces.IBaseRepository import IBaseRepository
 
 T = TypeVar("T", bound=models.Model)
 
 
-class AbstractBaseRepository(IBaseRepository[T], ABC):
+class ABaseRepository(IBaseRepository[T], ABC):
     """Implementación base abstracta del repositorio."""
 
     def __init__(self, model: type[T]):

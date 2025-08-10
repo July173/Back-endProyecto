@@ -1,4 +1,4 @@
-from core.base.View.Implements import BaseViewSet
+from core.base.View.Implements.BaseViewset import BaseViewSet
 from apps.Security.Services.PersonService import PersonService
 from apps.Security.Entity.Serializers.PersonSerializer import PersonSerializer
 

@@ -1,5 +1,5 @@
 from django.utils import timezone
-from core.base.Repositories.Implements.BaseRepository import ABaseRepository
+from core.base.Repositories.Implements.BaseRepository.ABaseRepository import ABaseRepository
 from typing import List, Optional, TypeVar
 from django.db import models
 

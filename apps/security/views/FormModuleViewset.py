@@ -1,4 +1,4 @@
-from core.base.View.Implements import BaseViewSet
+from core.base.View.Implements.BaseViewset import BaseViewSet
 from apps.Security.Services.FormModuleService import FormModuleService
 from apps.Security.Entity.Serializers.FormModuleSerializer import FormModuleSerializer
 
