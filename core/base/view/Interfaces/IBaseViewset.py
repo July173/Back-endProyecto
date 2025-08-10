@@ -1,7 +1,7 @@
-# core/base/view/interfaces.py
 from abc import ABC, abstractmethod
 from rest_framework.request import Request
 from rest_framework.response import Response
+from typing import Any
 
 
 class IBaseViewSet(ABC):
@@ -12,7 +12,7 @@ class IBaseViewSet(ABC):
         pass
 
     @abstractmethod
-    def retrieve(self, request: Request, pk=None) -> Response:
+    def retrieve(self, request: Request, pk: Any = None) -> Response:
         pass
 
     @abstractmethod
@@ -20,9 +20,21 @@ class IBaseViewSet(ABC):
         pass
 
     @abstractmethod
-    def update(self, request: Request, pk=None) -> Response:
+    def update(self, request: Request, pk: Any = None) -> Response:
         pass
 
     @abstractmethod
-    def destroy(self, request: Request, pk=None) -> Response:
+    def partial_update(self, request: Request, pk: Any = None) -> Response:
+        pass
+
+    @abstractmethod
+    def destroy(self, request: Request, pk: Any = None) -> Response:
+        pass
+
+    @abstractmethod
+    def get_serializer(self, *args, **kwargs) -> Any:
+        pass
+
+    @abstractmethod
+    def get_serializer_class(self) -> Any:
         pass

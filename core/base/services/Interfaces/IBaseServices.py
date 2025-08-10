@@ -1,4 +1,3 @@
-# core/base/services/interfaces.py
 from abc import ABC, abstractmethod
 from typing import Generic, TypeVar, List, Optional
 

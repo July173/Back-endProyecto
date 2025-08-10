@@ -1,4 +1,3 @@
-# core/base/repositories/base_repository.py
 from abc import ABC
 from django.db import models
 from typing import TypeVar, List, Optional
@@ -8,9 +7,9 @@ T = TypeVar("T", bound=models.Model)
 
 
 class AbstractBaseRepository(IBaseRepository[T], ABC):
-    """Implementación parcial de la interfaz del repositorio."""
+    """Implementación base abstracta del repositorio."""
 
-    def _init_(self, model: type[T]):
+    def __init__(self, model: type[T]):
         self.model = model
 
     def get_all(self) -> List[T]:
