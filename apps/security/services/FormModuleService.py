@@ -1,5 +1,6 @@
-from core.base.services.base_service import BaseService
-from apps.security.repositories.form_module_repository import FormModuleRepository
+from core.base.Services.Implements.BaseService import BaseService
+from apps.Security.Repositories.FormModuleRepository import FormModuleRepository
+
 
 class FormModuleService(BaseService):
     def __init__(self):

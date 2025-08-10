@@ -1,6 +1,6 @@
-from .role import Role
-from .form import Form
-from .permission import Permission
+from .Role import Role
+from .Form import Form
+from .Permission import Permission
 from django.db import models
 
 

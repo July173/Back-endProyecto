@@ -1,7 +1,8 @@
-from rest_framework import serializers
-from apps.security.Entity.models.role import Role
-from core.base.serializers.base_serializer import BaseSerializer
+from apps.Security.Entity.Models import Role
+from core.base.Serializers.Implements.BaseSerializer import BaseSerializer
+
+
 class RoleSerializer(BaseSerializer):
-    class Meta: 
-        model=Role; 
-        fields=['id','type_role','description','active']
+    class Meta:
+        model = Role
+        fields = ['id', 'type_role', 'description', 'active']

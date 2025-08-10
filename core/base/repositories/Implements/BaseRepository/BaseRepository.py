@@ -69,11 +69,11 @@ class BaseRepository:
             print(f"Campo 'date_deleted' cambiado a: {instance.date_deleted}")
         else:
             print("¡ADVERTENCIA! No se encontró ningún campo de fecha de eliminación")
-        
+
         print("Guardando instancia...")
         instance.save()
         print("Instancia guardada")
-        
+
         # Verificar que se guardó correctamente
         instance.refresh_from_db()
         print(f"Después de guardar - active: {getattr(instance, 'active', 'N/A')}")
@@ -98,7 +98,7 @@ class BaseRepository:
             # Si no tiene campos de estado, hacer eliminación física
             instance.delete()
             return None
-        
+
         instance.save()
         return instance
 

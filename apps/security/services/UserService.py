@@ -1,13 +1,20 @@
-from core.base.services.base_service import BaseService
-from apps.security.repositories.user_repository import UserRepository
+from core.base.Services.Implements.BaseService import BaseService
+from apps.Security.Repositories.UserRepository import UserRepository
 from django.contrib.auth.hashers import make_password
 
 
 class UserService(BaseService):
-    def __init__(self): self.repository=UserRepository()
-    def create(self,data):
-        pwd=data.get('password')
-        if pwd: data['password']=make_password(pwd)
+    def __init__(self):
+        self.repository = UserRepository()
+
+    def create(self, data):
+        pwd = data.get('password')
+        if pwd:
+            data['password'] = make_password(pwd)
         return super().create(data)
-    def change_password(self,pk,new_password):
-        inst=self.get(pk); inst.set_password(new_password); inst.save(); return inst
+
+    def change_password(self, pk, new_password):
+        inst = self.get(pk)
+        inst.set_password(new_password)
+        inst.save()
+        return inst

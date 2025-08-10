@@ -1,5 +1,5 @@
-from .form import Form
-from .module import Module
+from .Form import Form
+from .Module import Module
 from django.db import models
 
 

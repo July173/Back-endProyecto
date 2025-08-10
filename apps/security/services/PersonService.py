@@ -1,5 +1,6 @@
-from core.base.services.base_service import BaseService
-from apps.security.repositories.person_repository import PersonRepository
+from core.base.Services.Implements.BaseService import BaseService
+from apps.Security.Repositories.PersonRepository import PersonRepository
+
 
 class PersonService(BaseService):
     def __init__(self):

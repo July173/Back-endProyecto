@@ -1,5 +1,6 @@
-from core.base.services.base_service import BaseService
-from apps.security.repositories.module_repository import ModuleRepository
+from core.base.Services.Implements.BaseService import BaseService
+from apps.Security.Repositories.ModuleRepository import ModuleRepository
+
 
 class ModuleService(BaseService):
     def __init__(self):

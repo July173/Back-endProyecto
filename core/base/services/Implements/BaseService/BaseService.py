@@ -1,7 +1,7 @@
 class BaseService:
     repository = None
 
-    def list(self): 
+    def list(self):
         return self.repository.get_all()
 
     def get(self, pk):

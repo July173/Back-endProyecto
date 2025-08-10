@@ -1,7 +1,9 @@
-from rest_framework import serializers
-from apps.security.Entity.models import User
-from core.base.serializers.base_serializer import BaseSerializer
+from apps.Security.Entity.Models import User
+from core.base.Serializers.Implements.BaseSerializer import BaseSerializer
+
+
 class UserSerializer(BaseSerializer):
-  class Meta:
+
+    class Meta:
         model = User
         fields = ['email', 'password', 'person', 'role']
