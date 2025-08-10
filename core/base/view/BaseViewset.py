@@ -76,7 +76,7 @@ class BaseViewSet(viewsets.ViewSet):
         """
         self.service.delete(pk, logical=True)
         return Response(
-            {"message": "Estado del registro alternado correctamente"}, 
+            {"message": "Estado del registro alternado correctamente"},
             status=status.HTTP_200_OK
         )
 
@@ -88,6 +88,6 @@ class BaseViewSet(viewsets.ViewSet):
         """
         self.service.delete(pk, persistential=True)
         return Response(
-            {"message": "Registro desactivado permanentemente con fecha"}, 
+            {"message": "Registro desactivado permanentemente con fecha"},
             status=status.HTTP_200_OK
         )

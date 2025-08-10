@@ -1,6 +1,8 @@
 from core.base.services.base_service import BaseService
 from apps.security.repositories.user_repository import UserRepository
 from django.contrib.auth.hashers import make_password
+
+
 class UserService(BaseService):
     def __init__(self): self.repository=UserRepository()
     def create(self,data):

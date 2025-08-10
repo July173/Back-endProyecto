@@ -1,5 +1,6 @@
 from django.utils import timezone
 
+
 class BaseRepository:
     model = None
 
@@ -77,7 +78,7 @@ class BaseRepository:
         instance.refresh_from_db()
         print(f"Después de guardar - active: {getattr(instance, 'active', 'N/A')}")
         print(f"Después de guardar - delete_at: {getattr(instance, 'delete_at', 'N/A')}")
-        
+
         return instance
 
     def logical_delete(self, instance):
