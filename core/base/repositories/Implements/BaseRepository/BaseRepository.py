@@ -64,3 +64,8 @@ class BaseRepository(ABaseRepository[T]):
     def delete(self, id: int) -> bool:
         """Eliminación física permanente."""
         return super().delete(id)
+
+    def create(self, data: dict) -> T:
+        """Crea una instancia del modelo usando datos validados."""
+        instance = self.model.objects.create(**data)
+        return instance

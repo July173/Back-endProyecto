@@ -1,6 +1,5 @@
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from rest_framework.decorators import action
 from rest_framework.request import Request
 from typing import Type, Any
 from core.base.View.Interfaces.IBaseViewset import IBaseViewSet
@@ -70,60 +69,28 @@ class BaseViewSet(viewsets.ViewSet, IBaseViewSet):
         return Response(output_serializer.data)
 
     def partial_update(self, request: Request, pk: Any = None) -> Response:
-        instance = self.service.get(pk)
-        if not instance:
-            return Response(
-                {"detail": "No encontrado"},
-                status=status.HTTP_404_NOT_FOUND
-            )
-
-        serializer = self.get_serializer(
-            instance,
-            data=request.data,
-            partial=True
-        )
+        if not request.data:  # Si el cuerpo está vacío
+            instance = self.service.get(pk)
+            if not instance:
+                return Response(
+                    {"detail": "No encontrado"},
+                    status=status.HTTP_404_NOT_FOUND
+                )
+            response_serializer = self.get_serializer(instance)
+            return Response(response_serializer.data)
+        # Si hay datos, actualiza normalmente
+        serializer = self.get_serializer(data=request.data, partial=True)
         serializer.is_valid(raise_exception=True)
-        updated_instance = self.service.update(pk, serializer.validated_data)
-        output_serializer = self.get_serializer(updated_instance)
-        return Response(output_serializer.data)
+        updated_instance = self.service.partial_update(pk, serializer.validated_data)
+        response_serializer = self.get_serializer(updated_instance)
+        return Response(response_serializer.data)
 
     def destroy(self, request: Request, pk: Any = None) -> Response:
-        instance = self.service.get(pk)
-        if not instance:
-            return Response(
-                {"detail": "No encontrado"},
-                status=status.HTTP_404_NOT_FOUND
-            )
-
-        # Deleción inteligente (detecta automáticamente el tipo)
-        result = self.service.delete(pk)
-
-        if result is None:  # Eliminación física
+        deleted = self.service.delete(pk)
+        if deleted:
             return Response(status=status.HTTP_204_NO_CONTENT)
-        else:  # Eliminación lógica/persistencial
-            output_serializer = self.get_serializer(result)
-            return Response(output_serializer.data)
-
-    @action(detail=True, methods=['delete'], url_path='logical-delete')
-    def logical_delete(self, request: Request, pk: Any = None) -> Response:
-        """Endpoint para eliminación lógica (toggle estado)"""
-        instance = self.service.logical_delete(pk)
-        if not instance:
+        else:
             return Response(
                 {"detail": "No encontrado"},
                 status=status.HTTP_404_NOT_FOUND
             )
-        output_serializer = self.get_serializer(instance)
-        return Response(output_serializer.data)
-
-    @action(detail=True, methods=['delete'], url_path='persistential-delete')
-    def persistential_delete(self, request: Request, pk: Any = None) -> Response:
-        """Endpoint para eliminación persistencial (desactiva + marca fecha)"""
-        instance = self.service.persistential_delete(pk)
-        if not instance:
-            return Response(
-                {"detail": "No encontrado"},
-                status=status.HTTP_404_NOT_FOUND
-            )
-        output_serializer = self.get_serializer(instance)
-        return Response(output_serializer.data)

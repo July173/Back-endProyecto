@@ -26,3 +26,7 @@ class IBaseService(ABC, Generic[T]):
     @abstractmethod
     def delete(self, id: int) -> bool:
         pass
+
+    @abstractmethod
+    def partial_update(self, id: int, data: dict) -> T:
+        pass

@@ -18,9 +18,9 @@ class ABaseRepository(IBaseRepository[T], ABC):
     def get_by_id(self, id: int) -> Optional[T]:
         return self.model.objects.filter(pk=id).first()
 
-    def create(self, entity: T) -> T:
-        entity.save()
-        return entity
+    def create(self, data: dict) -> T:
+        instance = self.model.objects.create(**data)
+        return instance
 
     def update(self, entity: T) -> T:
         entity.save()
@@ -29,6 +29,6 @@ class ABaseRepository(IBaseRepository[T], ABC):
     def delete(self, id: int) -> bool:
         obj = self.get_by_id(id)
         if obj:
-            obj.delete()
+            obj.delete()  # Elimina físicamente el registro de la base de datos
             return True
         return False

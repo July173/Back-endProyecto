@@ -30,11 +30,3 @@ class IBaseViewSet(ABC):
     @abstractmethod
     def destroy(self, request: Request, pk: Any = None) -> Response:
         pass
-
-    @abstractmethod
-    def get_serializer(self, *args, **kwargs) -> Any:
-        pass
-
-    @abstractmethod
-    def get_serializer_class(self) -> Any:
-        pass

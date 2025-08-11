@@ -16,7 +16,7 @@ class IBaseRepository(ABC, Generic[T]):
         pass
 
     @abstractmethod
-    def create(self, entity: T) -> T:
+    def create(self, data: dict) -> T:
         pass
 
     @abstractmethod
