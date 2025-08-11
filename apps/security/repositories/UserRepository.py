@@ -3,4 +3,5 @@ from apps.Security.Entity.Models import User
 
 
 class UserRepository(BaseRepository):
-    model = User
+    def __init__(self):
+        super().__init__(User)

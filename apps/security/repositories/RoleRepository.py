@@ -3,4 +3,5 @@ from apps.Security.Entity.Models import Role
 
 
 class RoleRepository(BaseRepository):
-    model = Role
+    def __init__(self):
+        super().__init__(Role)

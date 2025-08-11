@@ -3,4 +3,5 @@ from apps.Security.Entity.Models import Permission
 
 
 class PermissionRepository(BaseRepository):
-    model = Permission
+    def __init__(self):
+        super().__init__(Permission)

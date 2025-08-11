@@ -3,4 +3,5 @@ from apps.Security.Entity.Models import Module
 
 
 class ModuleRepository(BaseRepository):
-    model = Module
+    def __init__(self):
+        super().__init__(Module)

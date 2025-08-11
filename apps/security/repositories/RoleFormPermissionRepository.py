@@ -3,4 +3,5 @@ from apps.Security.Entity.Models import RolFormPermission
 
 
 class RolFormPermissionRepository(BaseRepository):
-    model = RolFormPermission
+    def __init__(self):
+        super().__init__(RolFormPermission)

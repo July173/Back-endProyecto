@@ -3,4 +3,5 @@ from apps.Security.Entity.Models import FormModule
 
 
 class FormModuleRepository(BaseRepository):
-    model = FormModule
+    def __init__(self):
+        super().__init__(FormModule)
