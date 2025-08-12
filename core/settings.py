@@ -26,7 +26,7 @@ INSTALLED_APPS = [
     'drf_yasg',
     'corsheaders',
     # Apps locales
-    'apps.Security',  # reemplaza 'api' por tu app de seguridad
+    'apps.security',  # reemplaza 'api' por tu app de seguridad
 ]
 
 # ============================
@@ -80,7 +80,7 @@ DATABASES = {
 # ============================
 # MODELO DE USUARIO PERSONALIZADO
 # ============================
-AUTH_USER_MODEL = 'Security.User'
+AUTH_USER_MODEL = 'security.User'
 
 # ============================
 # VALIDACIÓN DE CONTRASEÑAS

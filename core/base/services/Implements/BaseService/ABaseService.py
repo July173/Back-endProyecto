@@ -1,7 +1,7 @@
 from abc import ABC
 from typing import TypeVar, List, Optional, Dict, Any
-from core.base.Services.Interfaces.IBaseService import IBaseService
-from core.base.Repositories.Interfaces.IBaseRepository import IBaseRepository
+from core.base.services.interfaces.IBaseService import IBaseService
+from core.base.repositories.interfaces.IBaseRepository import IBaseRepository
 
 T = TypeVar("T")
 

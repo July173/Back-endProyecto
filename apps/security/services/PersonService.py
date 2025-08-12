@@ -1,5 +1,5 @@
-from core.base.Services.Implements.BaseService.BaseService import BaseService
-from apps.Security.Repositories.PersonRepository import PersonRepository
+from core.base.services.implements.baseService.BaseService import BaseService
+from apps.security.repositories.PersonRepository import PersonRepository
 
 
 class PersonService(BaseService):

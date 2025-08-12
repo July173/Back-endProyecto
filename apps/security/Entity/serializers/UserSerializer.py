@@ -1,5 +1,5 @@
-from apps.Security.Entity.Models import User
-from core.base.Serializers.Implements.BaseSerializer.BaseSerializer import BaseSerializer
+from apps.security.entity.models import User
+from core.base.serializers.implements.baseSerializer.BaseSerializer import BaseSerializer
 
 
 class UserSerializer(BaseSerializer):

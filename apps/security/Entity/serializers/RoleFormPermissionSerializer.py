@@ -1,5 +1,5 @@
-from apps.Security.Entity.Models import RolFormPermission
-from core.base.Serializers.Implements.BaseSerializer.BaseSerializer import BaseSerializer
+from apps.security.entity.models import RolFormPermission
+from core.base.serializers.implements.baseSerializer.BaseSerializer import BaseSerializer
 
 
 class RolFormPermissionSerializer(BaseSerializer):

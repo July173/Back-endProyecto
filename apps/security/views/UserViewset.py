@@ -1,6 +1,6 @@
-from core.base.View.Implements.BaseViewset import BaseViewSet
-from apps.Security.Services.UserService import UserService
-from apps.Security.Entity.Serializers.UserSerializer import UserSerializer
+from core.base.view.implements.BaseViewset import BaseViewSet
+from apps.security.services.UserService import UserService
+from apps.security.entity.serializers.UserSerializer import UserSerializer
 
 
 class UserViewSet(BaseViewSet):

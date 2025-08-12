@@ -1,5 +1,5 @@
-from core.base.Repositories.Implements.BaseRepository.BaseRepository import BaseRepository
-from apps.Security.Entity.Models import Permission
+from core.base.repositories.implements.baseRepository.BaseRepository import BaseRepository
+from apps.security.entity.models import Permission
 
 
 class PermissionRepository(BaseRepository):

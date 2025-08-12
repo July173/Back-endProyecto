@@ -1,7 +1,7 @@
 from datetime import timezone
 from typing import TypeVar, Dict, Any, Optional
-from core.base.Services.Implements.BaseService.ABaseService import ABaseService
-from core.base.Repositories.Interfaces.IBaseRepository import IBaseRepository
+from core.base.services.implements.baseService.ABaseService import ABaseService
+from core.base.repositories.interfaces.IBaseRepository import IBaseRepository
 
 T = TypeVar("T")
 

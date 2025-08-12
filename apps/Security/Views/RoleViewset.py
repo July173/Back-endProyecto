@@ -1,6 +1,6 @@
-from core.base.View.Implements.BaseViewset import BaseViewSet
-from apps.Security.Services.RoleService import RoleService
-from apps.Security.Entity.Serializers.RoleSerializer import RoleSerializer
+from core.base.view.implements.BaseViewset import BaseViewSet
+from apps.security.services.RoleService import RoleService
+from apps.security.entity.serializers.RoleSerializer import RoleSerializer
 
 
 class RoleViewSet(BaseViewSet):

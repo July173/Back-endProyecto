@@ -1,5 +1,5 @@
-from core.base.Repositories.Implements.BaseRepository.BaseRepository import BaseRepository
-from apps.Security.Entity.Models import Form
+from core.base.repositories.implements.baseRepository.BaseRepository import BaseRepository
+from apps.security.entity.models import Form
 
 
 class FormRepository(BaseRepository):

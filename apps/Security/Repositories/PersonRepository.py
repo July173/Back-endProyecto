@@ -1,5 +1,5 @@
-from core.base.Repositories.Implements.BaseRepository.BaseRepository import BaseRepository
-from apps.Security.Entity.Models import Person
+from core.base.repositories.implements.baseRepository.BaseRepository import BaseRepository
+from apps.security.entity.models import Person
 
 
 class PersonRepository(BaseRepository):

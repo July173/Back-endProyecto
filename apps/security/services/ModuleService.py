@@ -1,5 +1,5 @@
-from core.base.Services.Implements.BaseService.BaseService import BaseService
-from apps.Security.Repositories.ModuleRepository import ModuleRepository
+from core.base.services.implements.baseService.BaseService import BaseService
+from apps.security.repositories.ModuleRepository import ModuleRepository
 
 
 class ModuleService(BaseService):

@@ -1,7 +1,7 @@
 from abc import ABC
 from django.db import models
 from typing import TypeVar, List, Optional
-from core.base.Repositories.Interfaces.IBaseRepository import IBaseRepository
+from core.base.repositories.interfaces.IBaseRepository import IBaseRepository
 
 T = TypeVar("T", bound=models.Model)
 

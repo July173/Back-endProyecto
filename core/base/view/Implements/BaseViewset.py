@@ -2,8 +2,8 @@ from rest_framework import viewsets, status
 from rest_framework.response import Response
 from rest_framework.request import Request
 from typing import Type, Any
-from core.base.View.Interfaces.IBaseViewset import IBaseViewSet
-from core.base.Services.Interfaces.IBaseService import IBaseService
+from core.base.view.interfaces.IBaseViewset import IBaseViewSet
+from core.base.services.interfaces.IBaseService import IBaseService
 from rest_framework.serializers import Serializer
 
 

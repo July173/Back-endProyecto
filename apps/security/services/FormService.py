@@ -1,5 +1,5 @@
-from core.base.Services.Implements.BaseService.BaseService import BaseService
-from apps.Security.Repositories.FormRepository import FormRepository
+from core.base.services.implements.baseService.BaseService import BaseService
+from apps.security.repositories.FormRepository import FormRepository
 
 
 class FormService(BaseService):

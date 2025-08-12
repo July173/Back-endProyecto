@@ -1,5 +1,5 @@
-from apps.Security.Entity.Models import FormModule
-from core.base.Serializers.Implements.BaseSerializer.BaseSerializer import BaseSerializer
+from apps.security.entity.models import FormModule
+from core.base.serializers.implements.baseSerializer.BaseSerializer import BaseSerializer
 
 
 class FormModuleSerializer(BaseSerializer):

@@ -1,6 +1,6 @@
 # apps/security/services/role_service.py
-from core.base.Services.Implements.BaseService.BaseService import BaseService
-from apps.Security.Repositories.RoleRepository import RoleRepository
+from core.base.services.implements.baseService.BaseService import BaseService
+from apps.security.repositories.RoleRepository import RoleRepository
 
 
 class RoleService(BaseService):
